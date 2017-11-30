@@ -68,6 +68,7 @@ class Question extends React.Component {
                             return(
                                 <li key={key}>
                                     <label>
+                                        <span>varun</span>
                                         <input type="radio" value={option} name={"que_"+paramsId} className="margin-right-half" onClick={this.optionSelection} defaultChecked={false}/>
                                         {option}
                                     </label>
