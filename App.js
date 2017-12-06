@@ -1,5 +1,5 @@
 import React from 'react';
-import{HashRouter as Router, Route} from 'react-router-dom';
+import{BrowserRouter as Router, Route, hashHistory} from 'react-router-dom';
 //import Routes from './routes.js';
 //import {Link} from 'react-router';
 import LandingPage from './components/LandingPage';
@@ -8,23 +8,19 @@ import Result from './components/Result';
 import { Provider } from 'react-redux';
 
 class App extends React.Component {
-	constructor(props){
-		super(props);
-	}
-	
+
 	render(){
-		return(			
-			<Router>
+		console.log(this.props);
+		return(
+			<Router history={hashHistory}>
 				<div className="text">
 					<Route exact path="/" component={LandingPage}/>
-					<Route exact path="/quiz/:id" component={Question}/>
+					<Route path="/quiz/:id" component={Question}/>
 					<Route path="/results" component={Result}/>
 				</div>
-			</Router>			
+			</Router>
 		);
 	}
 }
 
 export default App;
-
-

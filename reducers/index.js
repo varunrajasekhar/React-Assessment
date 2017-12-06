@@ -7,6 +7,15 @@ const allReducers = combineReducers({
     submittedAns: OptionSelectReducer
 });
 
-console.log("inside all reducers");
+//console.log("inside all reducers");
 
-export default allReducers;
+const rootReducer = (state,action) => {
+  if(action.type == "QUIZDATA_RESET"){
+      state.submittedAns = state.questions
+      confirm('do you want to leave the quiz');
+    return state;
+  }
+  return allReducers(state,action);
+}
+
+export default rootReducer;
